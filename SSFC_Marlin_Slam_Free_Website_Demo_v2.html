@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SSFC Marlin Slam Registration</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, sans-serif; background: #eef4fb; color: #16324f; }
+    .hero { background: linear-gradient(135deg, #0b4f87 0%, #1976b8 60%, #2e9fd8 100%); color: white; text-align: center; padding: 30px 18px; }
+    .hero .badge { display: inline-block; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.22); padding: 8px 14px; border-radius: 999px; font-size: 14px; margin-bottom: 14px; }
+    .hero h1 { margin: 0 0 8px; font-size: 32px; }
+    .hero p { margin: 6px 0; font-size: 17px; }
+    .wrap { max-width: 940px; margin: 20px auto 40px; padding: 0 14px; }
+    .card { background: white; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); margin-bottom: 18px; overflow: hidden; }
+    .card h2 { margin: 0; padding: 16px 20px; background: #dcecff; color: #0b4f87; font-size: 22px; }
+    .content { padding: 18px 20px 22px; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 10px; }
+    .stat { background: #f6fbff; border: 1px solid #d5e8f6; border-radius: 14px; padding: 16px; text-align: center; }
+    .stat strong { display:block; font-size: 24px; color:#0b4f87; margin-bottom:6px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .full { grid-column: 1 / -1; }
+    label { display: block; font-weight: bold; margin-bottom: 7px; }
+    input, textarea { width: 100%; padding: 12px; border: 1px solid #c7d6e6; border-radius: 10px; font-size: 15px; }
+    textarea { min-height: 96px; resize: vertical; }
+    .checkrow { background: #fff8df; border: 1px solid #f2df88; border-radius: 12px; padding: 12px 14px; }
+    .buttonbar { display:flex; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+    button, .btn { appearance: none; border: 0; border-radius: 10px; padding: 13px 18px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; }
+    .primary { background: #0b4f87; color: white; }
+    .secondary { background: #e7f1fa; color: #0b4f87; }
+    .success { display:none; margin-top:16px; background:#e9fbef; border:1px solid #98dfaa; color:#166534; padding:14px 16px; border-radius:12px; font-weight:bold; }
+    ul { padding-left: 18px; }
+    .footer { text-align:center; color:#5a6b7d; font-size: 13px; padding: 10px 20px 30px; }
+    @media (max-width: 760px) { .grid, .stats { grid-template-columns: 1fr; } .hero h1 { font-size: 28px; } }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="badge">SSFC • Sponsored by Heineken</div>
+    <h1>15th Annual Marlin Slam</h1>
+    <p>25 April 2026 • Eden Island Marina</p>
+    <p>Registration Fee: SCR 5,000 per boat</p>
+  </div>
+  <div class="wrap">
+    <div class="card">
+      <h2>How the free website works</h2>
+      <div class="content">
+        <p>This is the public registration page anglers would open on their phones. In the live version, the submit button would connect to a Google Form or Google Sheet backend so your committee receives each entry automatically.</p>
+        <div class="stats">
+          <div class="stat"><strong>Free</strong>Hosting on GitHub Pages or Netlify</div>
+          <div class="stat"><strong>Mobile</strong>Easy to fill in on a phone</div>
+          <div class="stat"><strong>Fast</strong>Share one link by WhatsApp</div>
+          <div class="stat"><strong>Live Chart</strong>Dashboard updates in Google Sheets</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Key tournament information</h2>
+      <div class="content">
+        <ul>
+          <li>Minimum 2 anglers per team</li>
+          <li>Skippers' meeting: 22 April 2026, 5pm to 6pm</li>
+          <li>Registration deadline: 24 April 2026, 6:00 PM</li>
+          <li>Return time to Eden Island Marina: 25 April 2026, 5:00 PM</li>
+          <li>All teams compete at their own risk and must accept tournament rules</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Registration form demo</h2>
+      <div class="content">
+        <form id="demoForm">
+          <div class="grid">
+            <div><label>Team Name</label><input placeholder="Enter team name" required /></div>
+            <div><label>Boat Name</label><input placeholder="Enter boat name" required /></div>
+            <div><label>Boat Registration Number</label><input placeholder="Enter registration number" /></div>
+            <div><label>Team Captain</label><input placeholder="Enter captain name" required /></div>
+            <div><label>Skipper Name</label><input placeholder="Enter skipper name" /></div>
+            <div><label>Mobile Number</label><input placeholder="Enter contact number" /></div>
+            <div><label>Email Address</label><input placeholder="Enter email address" /></div>
+            <div><label>Total Persons On Board</label><input placeholder="Enter total onboard" /></div>
+            <div class="full"><label>Angler Names</label><textarea placeholder="List all anglers"></textarea></div>
+            <div class="full"><label>Planned Fishing Area (Emergency Info)</label><textarea placeholder="General area where the boat plans to fish"></textarea></div>
+            <div class="full checkrow"><label><input type="checkbox" style="width:auto; margin-right:8px;" required> I have read and accept the tournament rules and declarations.</label></div>
+          </div>
+          <div class="buttonbar">
+            <button type="submit" class="primary">Submit Registration</button>
+          </div>
+          <div class="success" id="successBox">Demo successful. In the live version, this entry would go to your committee dashboard automatically.</div>
+        </form>
+      </div>
+    </div>
+    <div class="card">
+      <h2>What the committee sees behind the scenes</h2>
+      <div class="content">
+        <p>The committee uses a Google Sheet or Excel dashboard to see total teams registered, paid vs unpaid teams, confirmed entries, and follow-up actions.</p>
+        <p><strong>Yes, there is a hot chart option.</strong> That is the dashboard with charts showing live registration status.</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer">Demo prepared for SSFC executive committee review.</div>
+  <script>
+    document.getElementById("demoForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      document.getElementById("successBox").style.display = "block";
+      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>
